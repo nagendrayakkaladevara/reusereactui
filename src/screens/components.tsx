@@ -3,6 +3,7 @@ import GistEmbed from "../customHooks/gistEmbed";
 import { ButtonsDemo } from "../components/featureCode";
 import Input from "../reactreusablecomponents/inputfield";
 import TailwindInput from "../reactreusablecomponents/TailwindInput";
+import Loader from "../reactreusablecomponents/loader";
 
 interface MenuItem {
     name: string;
@@ -104,7 +105,7 @@ const Components: React.FC = () => {
         }, 1000);
     };
 
-    const currentMenuItem = menuItems.find(item => item.name === currentContent);   
+    const currentMenuItem = menuItems.find(item => item.name === currentContent);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
@@ -198,6 +199,12 @@ const Components: React.FC = () => {
                                             error={error}
                                             placeholder="Enter your username"
                                         />}
+
+                                        { }
+                                    </>)}
+
+                                    {currentContent === 'Loader' && (<>
+                                        <Loader />
                                     </>)}
 
                                 </div>
@@ -220,7 +227,7 @@ const Components: React.FC = () => {
 
                                 <br />
                                 <div style={{ width: "100%", boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px", padding: "10px", borderRadius: "10px" }}>
-                                    <GistEmbed gistId={(isChecked ? currentMenuItem.tailwindGist :currentMenuItem.gist)} />
+                                    <GistEmbed gistId={(isChecked ? currentMenuItem.tailwindGist : currentMenuItem.gist)} />
                                 </div>
                             </div>
                         )}
